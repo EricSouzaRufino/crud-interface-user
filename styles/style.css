@@ -10,7 +10,7 @@
 :root{
     --rubik: "Rubik", sans-serif;
     --quicksand: "Quicksand", sans-serif;
-    --tableColor: rgb(255, 182, 48);
+    --tableColor: rgb(255, 220, 48);
     --secondColor: #fff1cc;
     --titleColor: #ffea00;
     --shadowColor: #ccc;
@@ -24,6 +24,7 @@ body{
     display: flex;
     flex-direction: column;
     position: relative;
+    background-color: rgba(245, 222, 179, 0.255);
 }
 
 header{
@@ -48,8 +49,9 @@ main{
     width: 90%;
     margin: 5vh auto;
     padding: 50px;
-    box-shadow: 2px 2px 10px var(--shadowColor);
+    box-shadow: 2px 2px 20px var(--shadowColor);
     gap: 20px;
+    background-color: white;
     }
 
 footer{
