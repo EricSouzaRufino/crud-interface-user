@@ -1,15 +1,20 @@
-document
-  .getElementById("userRegistration")
-  .addEventListener("click", modalOpen);
+document.getElementById("userRegistration").addEventListener("click", modalOpen);
 document.getElementById("modalClose").addEventListener("click", modalClose);
 document.getElementById("saveValues").addEventListener("click", saveValues);
 
 function modalOpen() {
+  document.querySelector("h2").innerText = "Novo Usuário";
+  document.getElementById("saveValues").innerText = "Salvar";
   document.getElementById("modal").classList.add("active");
 }
 
 function modalClose() {
   document.getElementById("modal").classList.remove("active");
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("cel").value = "";
+  document.getElementById("city").value = "";
+
 }
 
 const celInput = document.getElementById("cel");
@@ -84,10 +89,10 @@ function insertTable() {
   const tableData = document.getElementById("tbody");
   if (localStorage.getItem("users")) {
     const listData = JSON.parse(localStorage.getItem("users"));
-    let template ='';
+    let template = "";
 
-      listData.forEach((user) => {
-        template += `<tr>
+    listData.forEach((user) => {
+      template += `<tr>
             <td> ${user.name}</td>
             <td> ${user.email}</td>
             <td> ${user.cel}</td>
@@ -97,13 +102,42 @@ function insertTable() {
                 <button type="button" class="button red">Excluir</button>
             </td>
         </tr>`;
-      })
-      tableData.innerHTML = template
-    } else {
-      tableData.innerHTML = `<tr><td colspan="5"> Nenhum usuario cadastradao!</td></tr>`;
-    }
-    
+    });
+    tableData.innerHTML = template;
+  } else {
+    tableData.innerHTML = `<tr><td colspan="5"> Nenhum usuario cadastradao!</td></tr>`;
+  }
 }
 
+function editUser(idUser) {
+
+  document.getElementById('saveValues').removeEventListener('click', saveValues);
+
+  modalOpen();
+  const textTitleUpdateUser = document.querySelector("h2");
+  textTitleUpdateUser.innerText = "Editar Usuario";
+  document.getElementById("saveValues").innerText = "Atualizar";
+
+  const getUserData = JSON.parse(localStorage.getItem("users"));
+  const userData = getUserData.find((userId) => userId.idUser === idUser);
+
+  document.getElementById("name").value = `${userData.name}`;
+  document.getElementById("email").value = `${userData.email}`;
+  document.getElementById("cel").value = `${userData.cel}`;
+  document.getElementById("city").value = `${userData.city}`;
+
+  document.getElementById('saveValues').addEventListener('click', uptadeUserInfo);
+}
+
+function uptadeUserInfo(){
+  const newName = document.getElementById('name').value;
+  const newEmail = document.getElementById('email').value;
+  const newCel = document.getElementById('cel').value;
+  const newCity = document.getElementById('city').value;
+
+  alert('Atualizado!')
+
+}
 
 window.addEventListener("DOMContentLoaded", insertTable);
+
