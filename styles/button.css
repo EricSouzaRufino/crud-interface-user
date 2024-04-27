@@ -17,19 +17,41 @@
     cursor: pointer;
     transition: box-shadow 0.6s ease;
     border-radius: 6px;
-    font-family: var(--quicksand);
+    font-weight: 700;
 }
 
 .button.blue {
     background-color: #1fb6ff;
+    font-family: var(--rubik);
+    font-size: 1.2rem;
+
 }
 
 .button.green {
     background-color: #13ce66;
+    font-size: 1rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 40%;
 }
 
 .button.red {
     background-color: #ff4949;
+    font-size: 1rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 40%;
+}
+
+#cancelButton{
+    width: 30%;
+    font-size: 1rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+#saveValues{
+    width: 30%;
+    font-size: 1rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button:hover {

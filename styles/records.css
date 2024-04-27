@@ -40,3 +40,17 @@
 .records tr:hover{
     background-color: var(--secondColor);
 }
+
+.records td.empty-message {
+    text-align: center;
+    padding: 20px; /* Adiciona um espaçamento interno à célula */
+    font-family: var(--quicksand);
+    font-size: 1.2rem;
+    width: 100%;
+    display: table-cell;
+}
+
+td:last-of-type{
+    display: flex;
+    justify-content: space-evenly;
+}   
