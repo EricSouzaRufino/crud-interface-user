@@ -130,9 +130,7 @@ function updateUser(idUser) {
   document.getElementById("cel").value = `${userData.cel}`;
   document.getElementById("city").value = `${userData.city}`;
 
-  document
-    .getElementById("saveValues")
-    .addEventListener("click", () => updateUserInfo(idUser));
+  document.getElementById("saveValues").addEventListener("click", () => updateUserInfo(idUser));
 }
 
 function updateUserInfo(idUser) {
@@ -153,6 +151,8 @@ function updateUserInfo(idUser) {
     userList[userIndexFind].email = newEmail;
     userList[userIndexFind].city = newCity;
 
+    alert("Dados atualizados com sucesso!");
+
     localStorage.setItem("users", JSON.stringify(userList));
 
     modalClose();
@@ -172,6 +172,7 @@ function deleteUser(idUser) {
   const findUser = getUserData.findIndex((user) => user.idUser == idUser);
 
   if (findUser !== -1) {
+    window.confirm("Deseja mesmo deletar esse usuário?");
     getUserData.splice(findUser, 1);
     localStorage.setItem("users", JSON.stringify(getUserData));
     insertTable();
